@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DROP Cockpit — California Privacy Exposure Dashboard</title>
+  <meta name="description" content="Track your data broker deletion requests under California's DROP program. See your risk surface shrink across ads, location tracking, people-search, and scam exposure." />
+
+  <!-- Fonts -->
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&f[]=satoshi@400,500,700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ══════════════════════════════ HEADER ══════════════════════════════ -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo" aria-label="DROP Cockpit">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect width="32" height="32" rx="8" fill="var(--color-primary)"/>
+        <path d="M9 8h6.5C18.538 8 21 10.462 21 13.5S18.538 19 15.5 19H9V8z" fill="white" opacity="0.9"/>
+        <path d="M9 19h7c1.657 0 3 1.343 3 3v0H9v-3z" fill="white" opacity="0.5"/>
+        <rect x="22" y="14" width="2" height="10" rx="1" fill="var(--color-accent)" opacity="0.85"/>
+        <rect x="25" y="11" width="2" height="13" rx="1" fill="var(--color-accent)" opacity="0.65"/>
+      </svg>
+      <span class="logo-text">DROP Cockpit</span>
+    </div>
+    <nav class="header-nav">
+      <a href="#exposure">Exposure</a>
+      <a href="#gameplan">Game Plan</a>
+      <a href="#tracker">Tracker</a>
+      <a href="#explainer">What DROP Can't Do</a>
+      <a href="#alternatives">Alternatives</a>
+    </nav>
+    <button data-theme-toggle aria-label="Switch to dark mode" class="theme-toggle">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- ══════════════════════════════ HERO ══════════════════════════════ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-badge">
+      <span class="badge-dot"></span>
+      California DELETE Act — DROP live Jan 1, 2026
+    </div>
+    <h1 class="hero-title">Your Privacy<br/><span class="accent-text">Exposure Cockpit</span></h1>
+    <p class="hero-sub">Over 540 registered data brokers are currently selling your name, location, relationships, income estimates, and behavioral profiles. California's DROP platform lets you nuke all of them with a single request. Track your deletion game plan and watch your risk surface shrink.</p>
+    <div class="hero-cta-row">
+      <a href="https://privacy.ca.gov/drop/" target="_blank" rel="noopener" class="btn-primary">Submit DROP Request →</a>
+      <a href="#gameplan" class="btn-ghost">View Game Plan</a>
+    </div>
+    <div class="deadline-banner">
+      <div class="deadline-item">
+        <span class="deadline-label">DROP Live</span>
+        <span class="deadline-date">Jan 1, 2026</span>
+      </div>
+      <div class="deadline-divider"></div>
+      <div class="deadline-item">
+        <span class="deadline-label">Brokers Must Process</span>
+        <span class="deadline-date">Aug 1, 2026</span>
+      </div>
+      <div class="deadline-divider"></div>
+      <div class="deadline-item">
+        <span class="deadline-label">Max Deletion Window</span>
+        <span class="deadline-date">90 Days</span>
+      </div>
+      <div class="deadline-divider"></div>
+      <div class="deadline-item">
+        <span class="deadline-label">Brokers Covered</span>
+        <span class="deadline-date">540+</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════ RISK SURFACE ══════════════════════════════ -->
+<section id="exposure" class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Your Exposure Surface</h2>
+      <p class="section-sub">Four categories of risk that broker data creates. Check off completed steps in the Game Plan below to watch these meters shrink.</p>
+    </div>
+
+    <div class="risk-grid">
+      <!-- Ads Targeting -->
+      <div class="risk-card" data-risk="ads">
+        <div class="risk-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 8l3 3 2-2 3 3"/></svg>
+        </div>
+        <div class="risk-header-row">
+          <h3 class="risk-title">Ad Targeting</h3>
+          <span class="risk-badge risk-high">High Exposure</span>
+        </div>
+        <p class="risk-desc">Behavioral profiles built from your browsing, purchases, and inferred income/political leanings enable hyper-targeted advertising. Brokers sell audience segments to ad platforms.</p>
+        <div class="risk-meter-wrap">
+          <div class="risk-meter-label">
+            <span>Current Risk</span>
+            <span class="risk-pct" data-risk-id="ads">100%</span>
+          </div>
+          <div class="risk-meter">
+            <div class="risk-fill risk-fill-ads" style="width:100%"></div>
+          </div>
+        </div>
+        <ul class="risk-data-list">
+          <li>Purchase history &amp; intent signals</li>
+          <li>Inferred income bracket</li>
+          <li>Political &amp; religious leanings</li>
+          <li>Mobile Advertising IDs (MAIDs)</li>
+        </ul>
+      </div>
+
+      <!-- Location Exposure -->
+      <div class="risk-card" data-risk="location">
+        <div class="risk-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        </div>
+        <div class="risk-header-row">
+          <h3 class="risk-title">Location Tracking</h3>
+          <span class="risk-badge risk-critical">Critical</span>
+        </div>
+        <p class="risk-desc">MAIDs let brokers sell precise movement history — where you live, work, worship, and receive healthcare. This data has been used to track protest attendees, abortion clinic visitors, and journalists.</p>
+        <div class="risk-meter-wrap">
+          <div class="risk-meter-label">
+            <span>Current Risk</span>
+            <span class="risk-pct" data-risk-id="location">100%</span>
+          </div>
+          <div class="risk-meter">
+            <div class="risk-fill risk-fill-location" style="width:100%"></div>
+          </div>
+        </div>
+        <ul class="risk-data-list">
+          <li>Home &amp; work address history</li>
+          <li>Connected TV device ID (CTV)</li>
+          <li>Vehicle VIN / movement data</li>
+          <li>Precise GPS visit history</li>
+        </ul>
+      </div>
+
+      <!-- People Search -->
+      <div class="risk-card" data-risk="people">
+        <div class="risk-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><circle cx="11" cy="9" r="2"/><path d="M7 19c0-2.21 1.79-4 4-4s4 1.79 4 4"/></svg>
+        </div>
+        <div class="risk-header-row">
+          <h3 class="risk-title">People-Search Sites</h3>
+          <span class="risk-badge risk-high">High Exposure</span>
+        </div>
+        <p class="risk-desc">Sites like Spokeo, Radaris, BeenVerified, and Intelius aggregate your address history, relatives, phone numbers, and court records. Anyone can look you up for $5.</p>
+        <div class="risk-meter-wrap">
+          <div class="risk-meter-label">
+            <span>Current Risk</span>
+            <span class="risk-pct" data-risk-id="people">100%</span>
+          </div>
+          <div class="risk-meter">
+            <div class="risk-fill risk-fill-people" style="width:100%"></div>
+          </div>
+        </div>
+        <ul class="risk-data-list">
+          <li>Full name + address history</li>
+          <li>Phone numbers &amp; emails</li>
+          <li>Family members &amp; relationships</li>
+          <li>Criminal records &amp; civil filings</li>
+        </ul>
+      </div>
+
+      <!-- Scam Targeting -->
+      <div class="risk-card" data-risk="scam">
+        <div class="risk-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 8v4M12 16h.01"/></svg>
+        </div>
+        <div class="risk-header-row">
+          <h3 class="risk-title">Scam &amp; Fraud Targeting</h3>
+          <span class="risk-badge risk-high">High Exposure</span>
+        </div>
+        <p class="risk-desc">Leaked broker data fuels "recovery scammers," social engineering, SIM-swapping, AI voice cloning impersonation, and spear-phishing attacks with your real family member names.</p>
+        <div class="risk-meter-wrap">
+          <div class="risk-meter-label">
+            <span>Current Risk</span>
+            <span class="risk-pct" data-risk-id="scam">100%</span>
+          </div>
+          <div class="risk-meter">
+            <div class="risk-fill risk-fill-scam" style="width:100%"></div>
+          </div>
+        </div>
+        <ul class="risk-data-list">
+          <li>SSN partial / financial data</li>
+          <li>Social graph (family names)</li>
+          <li>Email + phone for phishing</li>
+          <li>Inferred net worth &amp; assets</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Overall risk summary bar -->
+    <div class="overall-risk-panel">
+      <div class="overall-risk-left">
+        <span class="overall-label">Overall Risk Surface</span>
+        <div class="overall-meter">
+          <div class="overall-fill" id="overallFill" style="width:100%"></div>
+        </div>
+      </div>
+      <div class="overall-right">
+        <span class="overall-pct" id="overallPct">100%</span>
+        <span class="overall-sub">Complete steps below to reduce</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════ BROKER CATEGORIES ══════════════════════════════ -->
+<section class="section section-alt" id="brokers">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Who Likely Has Your Data</h2>
+      <p class="section-sub">Based on your digital footprint as a California-based software engineer, these broker categories almost certainly hold your data. DROP covers all 540+ registered brokers simultaneously.</p>
+    </div>
+
+    <div class="broker-categories">
+      <div class="broker-cat">
+        <div class="cat-icon cat-icon-ads">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <div class="cat-content">
+          <h3 class="cat-title">Marketing &amp; Advertising Brokers</h3>
+          <p class="cat-body">Companies like Acxiom, Experian Marketing, Oracle Data Cloud, and LiveRamp build behavioral profiles from credit card transactions, loyalty programs, app usage, and web tracking. They sell audience segments to every major ad platform. Your inferred income, political affiliation, and purchasing intent are all products.</p>
+          <div class="cat-examples">Acxiom · Experian Marketing · Oracle DaaS · LiveRamp · Epsilon · Lotame</div>
+        </div>
+        <div class="cat-risk-pill risk-critical-pill">Critical</div>
+      </div>
+
+      <div class="broker-cat">
+        <div class="cat-icon cat-icon-people">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </div>
+        <div class="cat-content">
+          <h3 class="cat-title">People-Search &amp; Background Check</h3>
+          <p class="cat-body">Aggregators pull from public records, voter rolls, utility filings, and social media to build dossiers any stranger can buy for a few dollars. They've been shown to hide opt-out pages from Google search results. DROP forces all 540+ into compliance simultaneously.</p>
+          <div class="cat-examples">Spokeo · Radaris · BeenVerified · Intelius · WhitePages · PeopleFinders · Truthfinder</div>
+        </div>
+        <div class="cat-risk-pill risk-high-pill">High</div>
+      </div>
+
+      <div class="broker-cat">
+        <div class="cat-icon cat-icon-location">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        </div>
+        <div class="cat-content">
+          <h3 class="cat-title">Location Data &amp; Mobility Brokers</h3>
+          <p class="cat-body">Apps silently harvest GPS coordinates via MAIDs and sell them to brokers. Senate investigations confirmed companies like Babel Street's Locate X sell real-time movement tracking to government agencies with no warrant. Providing your MAID to DROP hits these brokers hardest.</p>
+          <div class="cat-examples">SafeGraph · Placer.ai · Near Intelligence · Veraset · Babel Street</div>
+        </div>
+        <div class="cat-risk-pill risk-critical-pill">Critical</div>
+      </div>
+
+      <div class="broker-cat">
+        <div class="cat-icon cat-icon-financial">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <div class="cat-content">
+          <h3 class="cat-title">Financial &amp; Credit-Adjacent Brokers</h3>
+          <p class="cat-body">Note: brokers covered by FCRA (credit bureaus like Equifax, Experian, TransUnion) are exempt from DROP. But many financial aggregators selling non-FCRA data — estimated net worth, transaction patterns, debt inferences — are fully covered. These feed lenders, insurance, and employers.</p>
+          <div class="cat-examples">ID Analytics · CoreLogic · LexisNexis Risk Solutions (non-FCRA datasets)</div>
+        </div>
+        <div class="cat-risk-pill risk-moderate-pill">Partial Coverage</div>
+      </div>
+
+      <div class="broker-cat">
+        <div class="cat-icon cat-icon-health">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <div class="cat-content">
+          <h3 class="cat-title">Health &amp; Lifestyle Inference Brokers</h3>
+          <p class="cat-body">Not HIPAA-covered brokers build health profiles from pharmacy purchases, fitness app data, and consumer behavior to infer medical conditions. Note: actual health records covered by HIPAA are exempt from DROP, but inferred health data is not.</p>
+          <div class="cat-examples">Rx data aggregators · Wellness app data resellers · Retail pharmacy behavior brokers</div>
+        </div>
+        <div class="cat-risk-pill risk-moderate-pill">Partial Coverage</div>
+      </div>
+
+      <div class="broker-cat">
+        <div class="cat-icon cat-icon-tech">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <div class="cat-content">
+          <h3 class="cat-title">Tech &amp; Developer-Relevant Brokers</h3>
+          <p class="cat-body">As a software engineer, your GitHub activity, Stack Overflow profile, LinkedIn data, and professional email address are premium targets for B2B brokers selling "technographic" and "intent" data to SaaS vendors. These profiles drive SDR spam and recruiter targeting.</p>
+          <div class="cat-examples">ZoomInfo · Bombora · Clearbit · Hunter.io · LeadGenius · Cognism</div>
+        </div>
+        <div class="cat-risk-pill risk-high-pill">High</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════ GAME PLAN ══════════════════════════════ -->
+<section id="gameplan" class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Deletion Game Plan</h2>
+      <p class="section-sub">Prioritized steps to maximize your privacy gains before and after the August 1 processing deadline. Complete each phase in order for the biggest risk reduction per unit of effort.</p>
+    </div>
+
+    <!-- Phase 1 -->
+    <div class="phase">
+      <div class="phase-header">
+        <div class="phase-num">Phase 1</div>
+        <div class="phase-meta">
+          <h3 class="phase-title">Prepare &amp; Submit DROP Request</h3>
+          <span class="phase-impact phase-critical">Highest Impact — Do First</span>
+        </div>
+      </div>
+      <div class="phase-steps">
+
+        <div class="step-card" data-step="p1s1" data-risk-ads="5" data-risk-location="10" data-risk-people="10" data-risk-scam="5">
+          <div class="step-check-wrap">
+            <input type="checkbox" id="p1s1" class="step-check" />
+            <label for="p1s1" class="step-check-label"></label>
+          </div>
+          <div class="step-body">
+            <div class="step-title-row">
+              <h4 class="step-title">Gather your identifiers before starting</h4>
+              <span class="step-effort">~15 min</span>
+            </div>
+            <p class="step-desc">Collect: all name variants (including maiden names or aliases), up to 3 ZIP codes, up to 3 email addresses, up to 3 phone numbers, your Mobile Advertising ID (MAID) from phone settings, Connected TV ID, and vehicle VIN(s). More identifiers = more records matched = more data deleted.</p>
+            <div class="step-how">
+              <span class="how-label">How:</span>
+              iOS: Settings → Privacy & Security → Tracking (Limit Ad Tracking) — your IDFA is shown. Android: Settings → Google → Ads → Your advertising ID. For Smart TV, check system settings under "advertising" or "privacy."
+            </div>
+          </div>
+          <div class="step-impact-pills">
+            <span class="impact-pill impact-ads">Ads −5%</span>
+            <span class="impact-pill impact-location">Location −10%</span>
+            <span class="impact-pill impact-people">People −10%</span>
+            <span class="impact-pill impact-scam">Scam −5%</span>
+          </div>
+        </div>
+
+        <div class="step-card" data-step="p1s2" data-risk-ads="20" data-risk-location="25" data-risk-people="30" data-risk-scam="20">
+          <div class="step-check-wrap">
+            <input type="checkbox" id="p1s2" class="step-check" />
+            <label for="p1s2" class="step-check-label"></label>
+          </div>
+          <div class="step-body">
+            <div class="step-title-row">
+              <h4 class="step-title">Submit DROP request with ALL identifiers</h4>
+              <span class="step-effort">~20 min</span>
+            </div>
+            <p class="step-desc">Go to privacy.ca.gov/drop, verify your California residency via the Identity Gateway, create your profile, and submit. Select "All brokers" — there's no reason to exempt any of the 540+. Save your DROP ID from the confirmation screen. Bookmark the status page.</p>
+            <div class="step-how">
+              <span class="how-label">→</span>
+              <a href="https://privacy.ca.gov/drop/" target="_blank" rel="noopener">privacy.ca.gov/drop</a> — Free, official, secure. Identity info not retained by DROP.
+            </div>
+          </div>
+          <div class="step-impact-pills">
+            <span class="impact-pill impact-ads">Ads −20%</span>
+            <span class="impact-pill impact-location">Location −25%</span>
+            <span class="impact-pill impact-people">People −30%</span>
+            <span class="impact-pill impact-scam">Scam −20%</span>
+          </div>
+        </div>
+
+        <div class="step-card" data-step="p1s3" data-risk-ads="0" data-risk-location="0" data-risk-people="5" data-risk-scam="5">
+          <div class="step-check-wrap">
+            <input type="checkbox" id="p1s3" class="step-check" />
+            <label for="p1s3" class="step-check-label"></label>
+          </div>
+          <div class="step-body">
+            <div class="step-title-row">
+              <h4 class="step-title">Note your DROP ID and set an August 1 reminder</h4>
+              <span class="step-effort">2 min</span>
+            </div>
+            <p class="step-desc">Processing doesn't begin until August 1, 2026. Set a calendar reminder for August 15 to check your DROP status dashboard. Brokers have up to 90 days to report results after August 1. Save the confirmation page screenshot.</p>
+            <div class="step-how">
+              <span class="how-label">Note:</span>
+              Status will show "Pending" until after August 1. That's expected — not a bug.
+            </div>
+          </div>
+          <div class="step-impact-pills">
+            <span class="impact-pill impact-people">People −5%</span>
+            <span class="impact-pill impact-scam">Scam −5%</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Phase 2 -->
+    <div class="phase">
+      <div class="phase-header">
+        <div class="phase-num">Phase 2</div>
+        <div class="phase-meta">
+          <h3 class="phase-title">High-Priority Manual Opt-Outs (DROP Gaps)</h3>
+          <span class="phase-impact phase-high">High Impact — Run Parallel to DROP</span>
+        </div>
+      </div>
+      <div class="phase-steps">
+
+        <div class="step-card" data-step="p2s1" data-risk-ads="0" data-risk-location="0" data-risk-people="15" data-risk-scam="10">
+          <div class="step-check-wrap">
+            <input type="checkbox" id="p2s1" class="step-check" />
+            <label for="p2s1" class="step-check-label"></label>
+          </div>
+          <div class="step-body">
+            <div class="step-title-row">
+              <h4 class="step-title">Opt out of top people-search sites manually</h4>
+              <span class="step-effort">45–90 min</span>
+            </div>
+            <p class="step-desc">While DROP will cover these brokers, manually opt-outing now removes you immediately — before the August 1 deadline. Priority targets: Spokeo, Radaris, BeenVerified, Intelius, WhitePages, PeopleFinders, Truthfinder, FastPeopleSearch, MyLife. Use Yael Grauer's Big Ass Data Broker Opt-Out List.</p>
+            <div class="step-how">
+              <span class="how-label">→</span>
+              <a href="https://github.com/yaelwrites/Big-Ass-Data-Broker-Opt-Out-List" target="_blank" rel="noopener">Big Ass Data Broker Opt-Out List</a> — Free, prioritized, maintained.
+            </div>
+          </div>
+          <div class="step-impact-pills">
+            <span class="impact-pill impact-people">People −15%</span>
+            <span class="impact-pill impact-scam">Scam −10%</span>
+          </div>
+        </div>
+
+        <div class="step-card" data-step="p2s2" data-risk-ads="10" data-risk-location="0" data-risk-people="0" data-risk-scam="5">
+          <div class="step-check-wrap">
+            <input type="checkbox" id="p2s2" class="step-check" />
+            <label for="p2s2" class="step-check-label"></label>
+          </div>
+          <div class="step-body">
+            <div class="step-title-row">
+              <h4 class="step-title">Opt out of NAI &amp; DAA ad networks</h4>
+              <span class="step-effort">10 min</span>
+            </div>
+            <p class="step-desc">The Network Advertising Initiative and Digital Advertising Alliance run industry opt-out tools that cover hundreds of ad networks simultaneously. These operate outside the DROP framework (ad networks aren't classified as data brokers) so this is a necessary complement.</p>
+            <div class="step-how">
+              <span class="how-label">→</span>
+              <a href="https://optout.networkadvertising.org/" target="_blank" rel="noopener">NAI Opt-Out</a> · <a href="https://optout.aboutads.info/" target="_blank" rel="noopener">DAA Opt-Out</a> — Cookie-based; do per browser.
+            </div>
+          </div>
+          <div class="step-impact-pills">
+            <span class="impact-pill impact-ads">Ads −10%</span>
+            <span class="impact-pill impact-scam">Scam −5%</span>
+          </div>
+        </div>
+
+        <div class="step-card" data-step="p2s3" data-risk-ads="5" data-risk-location="20" data-risk-people="0" data-risk-scam="5">
+          <div class="step-check-wrap">
+            <input type="checkbox" id="p2s3" class="step-check" />
+            <label for="p2s3" class="step-check-label"></label>
+          </div>
+          <div class="step-body">
+            <div class="step-title-row">
+              <h4 class="step-title">Reset &amp; limit your Mobile Advertising ID</h4>
+              <span class="step-effort">5 min</span>
+            </div>
+            <p class="step-desc">Your MAID is the persistent identifier that lets location brokers track you across apps. Reset it now to break historical data chains, then enable "Limit Ad Tracking" (iOS) or "Opt out of Ads Personalization" (Android). iOS 14.5+ requires explicit opt-in per app.</p>
+            <div class="step-how">
+              <span class="how-label">iOS:</span> Settings → Privacy & Security → Tracking → disable "Allow Apps to Request to Track." Reset: Settings → Privacy → Apple Advertising → Reset Advertising ID. <span class="how-label">Android:</span> Settings → Google → Ads → Delete advertising ID.
+            </div>
+          </div>
+          <div class="step-impact-pills">
+            <span class="impact-pill impact-ads">Ads −5%</span>
+            <span class="impact-pill impact-location">Location −20%</span>
+            <span class="impact-pill impact-scam">Scam −5%</span>
+          </div>
+        </div>
+
+        <div class="step-card" data-step="p2s4" data-risk-ads="0" data-risk-location="0" data-risk-people="0" data-risk-scam="15">
+          <div class="step-check-wrap">
+            <input type="checkbox" id="p2s4" class="step-check" />
+            <label for="p2s4" class="step-check-label"></label>
+          </div>
+          <div class="step-body">
+            <div class="step-title-row">
+              <h4 class="step-title">Opt out of B2B tech &amp; professional data brokers</h4>
+              <span class="step-effort">30 min</span>
+            </div>
+            <p class="step-desc">As an engineer, your professional data is premium. ZoomInfo, Apollo.io, RocketReach, and Clearbit sell your work email, direct phone, and employer data to SDRs globally. These B2B brokers often aren't registered under California's framework — opt out directly.</p>
+            <div class="step-how">
+              <span class="how-label">→</span>
+              <a href="https://www.zoominfo.com/about/privacy/do-not-sell" target="_blank" rel="noopener">ZoomInfo opt-out</a> · <a href="https://app.apollo.io/#/opt-out" target="_blank" rel="noopener">Apollo.io opt-out</a> · <a href="https://rocketreach.co/privacy" target="_blank" rel="noopener">RocketReach privacy</a>
+            </div>
+          </div>
+          <div class="step-impact-pills">
+            <span class="impact-pill impact-scam">Scam −15%</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Phase 3 -->
+    <div class="phase">
+      <div class="phase-header">
+        <div class="phase-num">Phase 3</div>
+        <div class="phase-meta">
+          <h3 class="phase-title">Post-August Follow-Up &amp; Hardening</h3>
+          <span class="phase-impact phase-medium">Medium Impact — Do After Aug 1</span>
+        </div>
+      </div>
+      <div class="phase-steps">
+
+        <div class="step-card" data-step="p3s1" data-risk-ads="5" data-risk-location="10" data-risk-people="5" data-risk-scam="5">
+          <div class="step-check-wrap">
+            <input type="checkbox" id="p3s1" class="step-check" />
+            <label for="p3s1" class="step-check-label"></label>
+          </div>
+          <div class="step-body">
+            <div class="step-title-row">
+              <h4 class="step-title">Review DROP deletion statuses in dashboard</h4>
+              <span class="step-effort">~20 min, post Aug 1</span>
+            </div>
+            <p class="step-desc">Check your DROP dashboard using your DROP ID. Review statuses: "Deleted" (success), "Opted-out" (no match but opted out), "Exempted" (data protected by other law), "Record not found." For "Record not found," add more identifiers and resubmit — you may need variant name spellings or additional emails.</p>
+            <div class="step-how">
+              <span class="how-label">→</span>
+              <a href="https://privacy.ca.gov/drop/" target="_blank" rel="noopener">Check status at privacy.ca.gov/drop</a> — brokers have up to 90 days to report.
+            </div>
+          </div>
+          <div class="step-impact-pills">
+            <span class="impact-pill impact-ads">Ads −5%</span>
+            <span class="impact-pill impact-location">Location −10%</span>
+            <span class="impact-pill impact-people">People −5%</span>
+            <span class="impact-pill impact-scam">Scam −5%</span>
+          </div>
+        </div>
+
+        <div class="step-card" data-step="p3s2" data-risk-ads="10" data-risk-location="5" data-risk-people="5" data-risk-scam="5">
+          <div class="step-check-wrap">
+            <input type="checkbox" id="p3s2" class="step-check" />
+            <label for="p3s2" class="step-check-label"></label>
+          </div>
+          <div class="step-body">
+            <div class="step-title-row">
+              <h4 class="step-title">Audit &amp; revoke app location permissions</h4>
+              <span class="step-effort">15 min</span>
+            </div>
+            <p class="step-desc">Location deletion is only as good as future data hygiene. Revoke "precise location" from all apps that don't strictly need it. Switch remaining apps to "While Using" only. Review: weather apps, food delivery, photo apps, retail apps. None need "Always On" location.</p>
+            <div class="step-how">
+              <span class="how-label">iOS:</span> Settings → Privacy & Security → Location Services. <span class="how-label">Android:</span> Settings → Location → App Permissions.
+            </div>
+          </div>
+          <div class="step-impact-pills">
+            <span class="impact-pill impact-ads">Ads −10%</span>
+            <span class="impact-pill impact-location">Location −5%</span>
+            <span class="impact-pill impact-people">People −5%</span>
+            <span class="impact-pill impact-scam">Scam −5%</span>
+          </div>
+        </div>
+
+        <div class="step-card" data-step="p3s3" data-risk-ads="5" data-risk-location="0" data-risk-people="5" data-risk-scam="5">
+          <div class="step-check-wrap">
+            <input type="checkbox" id="p3s3" class="step-check" />
+            <label for="p3s3" class="step-check-label"></label>
+          </div>
+          <div class="step-body">
+            <div class="step-title-row">
+              <h4 class="step-title">Set up Google &amp; Apple data deletion requests</h4>
+              <span class="step-effort">15 min</span>
+            </div>
+            <p class="step-desc">Google and Apple are first-party data collectors (not brokers), so DROP doesn't apply to them. Use their own privacy tools: Google My Activity deletion, Maps timeline deletion, ad personalization opt-out. Request your Apple data and delete what you don't need.</p>
+            <div class="step-how">
+              <span class="how-label">→</span>
+              <a href="https://myaccount.google.com/data-and-privacy" target="_blank" rel="noopener">Google Data Controls</a> · <a href="https://privacy.apple.com/" target="_blank" rel="noopener">Apple Privacy Portal</a>
+            </div>
+          </div>
+          <div class="step-impact-pills">
+            <span class="impact-pill impact-ads">Ads −5%</span>
+            <span class="impact-pill impact-people">People −5%</span>
+            <span class="impact-pill impact-scam">Scam −5%</span>
+          </div>
+        </div>
+
+        <div class="step-card" data-step="p3s4" data-risk-ads="5" data-risk-location="5" data-risk-people="5" data-risk-scam="5">
+          <div class="step-check-wrap">
+            <input type="checkbox" id="p3s4" class="step-check" />
+            <label for="p3s4" class="step-check-label"></label>
+          </div>
+          <div class="step-body">
+            <div class="step-title-row">
+              <h4 class="step-title">Annual re-submission &amp; maintenance</h4>
+              <span class="step-effort">Recurring, ~30 min/year</span>
+            </div>
+            <p class="step-desc">New data brokers register with California annually. New brokers are automatically covered by your existing DROP request, but updating your profile with new phone numbers, email addresses, or additional identifiers ensures maximum coverage. Set a yearly calendar reminder to review.</p>
+            <div class="step-how">
+              <span class="how-label">Tip:</span>
+              If you change your phone number or get a new email, update your DROP profile immediately — brokers cycle every 45 days.
+            </div>
+          </div>
+          <div class="step-impact-pills">
+            <span class="impact-pill impact-ads">Ads −5%</span>
+            <span class="impact-pill impact-location">Location −5%</span>
+            <span class="impact-pill impact-people">People −5%</span>
+            <span class="impact-pill impact-scam">Scam −5%</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════ TRACKER ══════════════════════════════ -->
+<section id="tracker" class="section section-alt">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Confirmation Tracker</h2>
+      <p class="section-sub">Log your deletion confirmations and notes here. Data is saved locally in your browser.</p>
+    </div>
+
+    <div class="tracker-panel">
+      <div class="tracker-summary">
+        <div class="tracker-stat">
+          <span class="tracker-num" id="trackerStepsCompleted">0</span>
+          <span class="tracker-label">Steps Completed</span>
+        </div>
+        <div class="tracker-divider"></div>
+        <div class="tracker-stat">
+          <span class="tracker-num" id="trackerStepsTotal">11</span>
+          <span class="tracker-label">Total Steps</span>
+        </div>
+        <div class="tracker-divider"></div>
+        <div class="tracker-stat">
+          <span class="tracker-num" id="trackerRiskReduced">0%</span>
+          <span class="tracker-label">Risk Reduced</span>
+        </div>
+        <div class="tracker-divider"></div>
+        <div class="tracker-stat">
+          <span class="tracker-num" id="trackerDropId">—</span>
+          <span class="tracker-label">DROP ID</span>
+        </div>
+      </div>
+
+      <div class="tracker-drop-id-row">
+        <label for="dropIdInput" class="tracker-input-label">Your DROP ID (from confirmation page)</label>
+        <div class="tracker-input-row">
+          <input type="text" id="dropIdInput" class="tracker-input" placeholder="e.g. DROP-XXXXXXXX" />
+          <button class="btn-save-id" id="saveDropId">Save</button>
+        </div>
+      </div>
+
+      <div class="tracker-notes-row">
+        <label for="trackerNotes" class="tracker-input-label">Notes &amp; Confirmation Codes</label>
+        <textarea id="trackerNotes" class="tracker-textarea" placeholder="Paste confirmation emails, opt-out reference numbers, dates, or any notes here..."></textarea>
+        <button class="btn-save-notes" id="saveNotes">Save Notes</button>
+      </div>
+
+      <div class="tracker-progress">
+        <div class="progress-bar-label">
+          <span>Overall Completion</span>
+          <span id="progressPct">0%</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill" style="width:0%"></div>
+        </div>
+      </div>
+
+      <button class="btn-reset" id="resetTracker">Reset All Progress</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════ DROP EXPLAINER ══════════════════════════════ -->
+<section id="explainer" class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">What DROP Can — and Can't — Do</h2>
+      <p class="section-sub">DROP is powerful, but it has real limits. Know what you're getting before you depend on it.</p>
+    </div>
+
+    <div class="explainer-grid">
+      <div class="explainer-col can-col">
+        <div class="explainer-col-header">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          <h3>DROP Can</h3>
+        </div>
+        <ul class="explainer-list">
+          <li>Send deletion requests to all 540+ registered California data brokers simultaneously</li>
+          <li>Require brokers to delete your personal information, including <em>inferred</em> data (assumed income, political leanings, health conditions)</li>
+          <li>Opt you out of the sale and sharing of your data — not just deletion</li>
+          <li>Cover all future registered data brokers automatically (new registrants are included)</li>
+          <li>Force brokers to cascade deletion requests to third parties they shared your data with</li>
+          <li>Require brokers to process requests on a 45-day cycle after August 1, 2026</li>
+          <li>Let you track deletion status per broker</li>
+          <li>Let you submit on behalf of a minor or elderly family member (California resident)</li>
+          <li>Delete sensitive data: SSN fragments, health inferences, relationship graphs, financial inferences</li>
+        </ul>
+      </div>
+
+      <div class="explainer-col cant-col">
+        <div class="explainer-col-header">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          <h3>DROP Can't</h3>
+        </div>
+        <ul class="explainer-list">
+          <li>Cover FCRA-regulated entities: Equifax, Experian, TransUnion (credit reports are exempt)</li>
+          <li>Delete data from companies you have a direct relationship with (first-party data — your bank, employer, stores you shop at)</li>
+          <li>Delete publicly available information: court records, property records, voter registration that are available by law</li>
+          <li>Cover HIPAA-regulated health records (though non-HIPAA health inferences ARE covered)</li>
+          <li>Apply to non-California residents (see Alternatives below)</li>
+          <li>Immediately remove data — processing only starts August 1, with up to 90 days for status reporting</li>
+          <li>Delete data from Google, Meta, Amazon, or Apple (first-party data collectors, not brokers)</li>
+          <li>Cover companies not registered as data brokers — some small operators may fly under the radar</li>
+          <li>Guarantee your data won't be re-collected — you need to maintain data hygiene going forward</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-panel">
+      <h3 class="timeline-title">Key Timeline</h3>
+      <div class="timeline">
+        <div class="timeline-item timeline-done">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">Jan 1, 2026</span>
+            <p class="timeline-desc">DROP platform launches. California residents can begin submitting deletion requests. Status shows "Pending" — brokers not yet required to act.</p>
+          </div>
+        </div>
+        <div class="timeline-item timeline-upcoming">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">Aug 1, 2026</span>
+            <p class="timeline-desc">D-Day. Brokers legally required to begin processing DROP requests every 45 days. Deletion begins. Brokers have up to 90 days to report status per request.</p>
+          </div>
+        </div>
+        <div class="timeline-item timeline-upcoming">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">Oct 30, 2026</span>
+            <p class="timeline-desc">Latest possible date for brokers to report deletion status for August 1 submissions (90-day window). Most will report sooner.</p>
+          </div>
+        </div>
+        <div class="timeline-item timeline-recurring">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">Every 45 Days</span>
+            <p class="timeline-desc">Ongoing: brokers process deletion lists and opt-out requests. New broker registrations covered automatically by your existing request.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════ ALTERNATIVES ══════════════════════════════ -->
+<section id="alternatives" class="section section-alt">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Outside California?</h2>
+      <p class="section-sub">DROP is California-only. Here are the best alternatives for residents of other states — ranging from free manual tools to paid services that automate the work.</p>
+    </div>
+
+    <div class="alt-grid">
+      <div class="alt-card alt-free">
+        <div class="alt-card-header">
+          <span class="alt-tag alt-tag-free">Free</span>
+          <h3 class="alt-title">Big Ass Data Broker Opt-Out List</h3>
+        </div>
+        <p class="alt-desc">Yael Grauer's comprehensive, community-maintained list of data broker opt-out links. Flags "crucial" and "high priority" targets so you know where to start. Works anywhere in the world.</p>
+        <div class="alt-coverage">Covers: People-search, marketing, people-search, financial brokers</div>
+        <a href="https://github.com/yaelwrites/Big-Ass-Data-Broker-Opt-Out-List" target="_blank" rel="noopener" class="alt-link">View on GitHub →</a>
+      </div>
+
+      <div class="alt-card alt-free">
+        <div class="alt-card-header">
+          <span class="alt-tag alt-tag-free">Free</span>
+          <h3 class="alt-title">NAI + DAA Opt-Out Tools</h3>
+        </div>
+        <p class="alt-desc">The Network Advertising Initiative and Digital Advertising Alliance run industry-wide opt-out portals. One visit covers hundreds of ad networks. Cookie-based — do once per browser and device.</p>
+        <div class="alt-coverage">Covers: Behavioral advertising, ad targeting, retargeting</div>
+        <div class="alt-link-row">
+          <a href="https://optout.networkadvertising.org/" target="_blank" rel="noopener" class="alt-link">NAI Opt-Out →</a>
+          <a href="https://optout.aboutads.info/" target="_blank" rel="noopener" class="alt-link">DAA Opt-Out →</a>
+        </div>
+      </div>
+
+      <div class="alt-card alt-paid">
+        <div class="alt-card-header">
+          <span class="alt-tag alt-tag-paid">Paid</span>
+          <h3 class="alt-title">DeleteMe</h3>
+        </div>
+        <p class="alt-desc">Sends opt-out requests to people-search sites on your behalf and re-submits quarterly, since some brokers re-add your data. Consumer Reports rated it highly for coverage and ease of use. ~$129/year for one person.</p>
+        <div class="alt-coverage">Best for: People-search site removal, recurring suppression</div>
+        <a href="https://joindeleteme.com/" target="_blank" rel="noopener" class="alt-link">joindeleteme.com →</a>
+      </div>
+
+      <div class="alt-card alt-paid">
+        <div class="alt-card-header">
+          <span class="alt-tag alt-tag-paid">Paid</span>
+          <h3 class="alt-title">Optery</h3>
+        </div>
+        <p class="alt-desc">Scans 200+ data broker sites and shows you exactly what data exists before opting out. Transparent, granular reporting. Free tier available for manual opt-outs; paid tier automates. Strong for technical users who want visibility.</p>
+        <div class="alt-coverage">Best for: Visibility + control over which brokers have what</div>
+        <a href="https://www.optery.com/" target="_blank" rel="noopener" class="alt-link">optery.com →</a>
+      </div>
+
+      <div class="alt-card alt-paid">
+        <div class="alt-card-header">
+          <span class="alt-tag alt-tag-paid">Paid</span>
+          <h3 class="alt-title">EasyOptOuts</h3>
+        </div>
+        <p class="alt-desc">Budget-friendly automated opt-out service covering 170+ data brokers. Lower cost than DeleteMe, no free tier, but straightforward. Good for users who want automation without a premium price. ~$20/year.</p>
+        <div class="alt-coverage">Best for: Cost-effective automation, non-CA residents</div>
+        <a href="https://easyoptouts.com/" target="_blank" rel="noopener" class="alt-link">easyoptouts.com →</a>
+      </div>
+
+      <div class="alt-card alt-legislative">
+        <div class="alt-card-header">
+          <span class="alt-tag alt-tag-legislative">Legislative</span>
+          <h3 class="alt-title">State-Level Privacy Rights</h3>
+        </div>
+        <p class="alt-desc">Several states have passed their own privacy laws with deletion rights: Texas, Oregon, Montana, Delaware, Iowa, Indiana, Tennessee, and Florida all have comprehensive privacy laws. Vermont requires data broker registration. Watch for a federal DELETE Act bill.</p>
+        <div class="alt-coverage">States with deletion rights: TX, OR, MT, DE, CO, CT, VA, and more</div>
+        <a href="https://iapp.org/resources/article/us-state-privacy-legislation-tracker/" target="_blank" rel="noopener" class="alt-link">IAPP State Tracker →</a>
+      </div>
+    </div>
+
+    <div class="alt-comparison">
+      <h3 class="alt-comp-title">Quick Comparison</h3>
+      <div class="table-scroll">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Option</th>
+              <th>Cost</th>
+              <th>CA Only?</th>
+              <th>Brokers Covered</th>
+              <th>Automation</th>
+              <th>Best For</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="row-highlight">
+              <td><strong>DROP (CA)</strong></td>
+              <td>Free</td>
+              <td>Yes</td>
+              <td>540+</td>
+              <td>Single submission</td>
+              <td>CA residents, comprehensive</td>
+            </tr>
+            <tr>
+              <td>Big Ass List</td>
+              <td>Free</td>
+              <td>No</td>
+              <td>200+</td>
+              <td>Manual</td>
+              <td>Budget, global</td>
+            </tr>
+            <tr>
+              <td>DeleteMe</td>
+              <td>~$129/yr</td>
+              <td>No</td>
+              <td>750+</td>
+              <td>Full</td>
+              <td>Non-CA, recurring</td>
+            </tr>
+            <tr>
+              <td>Optery</td>
+              <td>Free–$249/yr</td>
+              <td>No</td>
+              <td>200+</td>
+              <td>Partial/Full</td>
+              <td>Visibility + control</td>
+            </tr>
+            <tr>
+              <td>EasyOptOuts</td>
+              <td>~$20/yr</td>
+              <td>No</td>
+              <td>170+</td>
+              <td>Full</td>
+              <td>Budget automation</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════ FOOTER ══════════════════════════════ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="32" height="32" rx="8" fill="var(--color-primary)"/>
+          <path d="M9 8h6.5C18.538 8 21 10.462 21 13.5S18.538 19 15.5 19H9V8z" fill="white" opacity="0.9"/>
+          <path d="M9 19h7c1.657 0 3 1.343 3 3v0H9v-3z" fill="white" opacity="0.5"/>
+        </svg>
+        <span>DROP Cockpit</span>
+      </div>
+      <p class="footer-note">This tool is not affiliated with the California Privacy Protection Agency. All data is stored locally in your browser and never transmitted. <a href="https://privacy.ca.gov/drop/" target="_blank" rel="noopener">Submit your official DROP request at privacy.ca.gov/drop</a>.</p>
+      <div class="footer-links">
+        <a href="https://privacy.ca.gov/drop/" target="_blank" rel="noopener">Official DROP Portal</a>
+        <a href="https://privacy.ca.gov/data-brokers/" target="_blank" rel="noopener">CA Broker Registry</a>
+        <a href="https://github.com/yaelwrites/Big-Ass-Data-Broker-Opt-Out-List" target="_blank" rel="noopener">Opt-Out List</a>
+        <a href="https://iapp.org/resources/article/us-state-privacy-legislation-tracker/" target="_blank" rel="noopener">State Privacy Laws</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
